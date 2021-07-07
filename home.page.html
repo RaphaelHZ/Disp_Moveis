@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true">
+  <div id="cont">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10">
+          <ion-item class="cont">
+            <ion-label position="floating">Informe o item:</ion-label>
+            <ion-input  #input [(ngModel)]="texto" (keyup.enter)="adicionar()">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button (click)="adicionar()" size="small"><ion-icon name="save-outline"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <ion-list>
+      <ion-item *ngFor="let item of minhaLista; let i=index">
+        <ion-label>{{item[1]}}</ion-label>
+        <ion-button (click)="remover(item[0])" color="danger"><ion-icon name="trash"></ion-icon></ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
